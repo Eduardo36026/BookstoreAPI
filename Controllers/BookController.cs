@@ -27,6 +27,26 @@ namespace BookstoreAPI.Controllers
             };
             return Created(string.Empty, response);
         }
+
+
+        [HttpGet]
+        [Route("id")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult GetById([FromRoute] int id)
+        {
+            var response = new Book
+            {
+                Id = 3,
+                Title = "The Lord of the Rings",
+                Author = "Tolkien",
+                Gender = "Fantasy",
+                Price = 55.00,
+                QuantityInStock = 3
+            };
+            return Ok(response);
+        }
+
+
         [HttpGet]
         [ProducesResponseType(typeof(Book), StatusCodes.Status200OK)]
         public IActionResult GetAllBooks()
